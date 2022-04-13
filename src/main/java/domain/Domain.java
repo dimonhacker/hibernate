@@ -1,10 +1,14 @@
 package domain;
 
 import bl.HibernateUtil;
+import bl.SessionUtil;
 import entity.Address;
 import entity.Employee;
 import entity.Project;
 import org.hibernate.Session;
+import service.AddressService;
+import service.EmployeeService;
+import service.ProjectService;
 
 import java.sql.Date;
 import java.util.Calendar;
@@ -14,9 +18,10 @@ import java.util.Set;
 
 public class Domain {
 
-    public static void main(String[] args) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
+    public static void main(String[] args) throws InterruptedException {
+        AddressService addressService = new AddressService();
+        EmployeeService employeeService = new EmployeeService();
+        ProjectService projectService = new ProjectService();
 
         Address address = new Address();
         address.setCountry("Russia");
@@ -43,11 +48,15 @@ public class Domain {
         projects.add(project);
         employee.setProjects(projects);
 
-        session.persist(address);
-        session.persist(project);
-        session.persist(employee);
 
-        session.getTransaction().commit();
+        addressService.addAddress(address);
+        employeeService.addEmployee(employee);
+        projectService.addProject(project);
+
+
+
         HibernateUtil.shutDown();
+
+
     }
 }

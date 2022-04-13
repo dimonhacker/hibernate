@@ -1,7 +1,6 @@
 package entity;
 
 
-
 import jakarta.persistence.*;
 
 import java.util.Objects;
