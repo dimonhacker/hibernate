@@ -1,7 +1,6 @@
 package entity;
 
-import javax.persistence.*;
-import org.hibernate.annotations.OptimisticLock;
+import jakarta.persistence.*;
 
 import java.util.Set;
 

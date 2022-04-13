@@ -1,10 +1,7 @@
 package entity;
 
 
-import javax.persistence.*;
-import org.hibernate.annotations.OptimisticLock;
-
-import java.util.Objects;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "ADDRESS")

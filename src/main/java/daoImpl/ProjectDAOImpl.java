@@ -37,7 +37,7 @@ public class ProjectDAOImpl implements DAO<Project> {
         Session session = sessionUtil.getSession();
         String sql = "Select * from PROJECT where id = :id";
         Query query = session.createNativeQuery(sql, Project.class);
-        query.setParameter(1, id);
+        query.setParameter("id", id);
         Project project = (Project) query.getSingleResult();
         sessionUtil.closeTransactionSession();
         return project;

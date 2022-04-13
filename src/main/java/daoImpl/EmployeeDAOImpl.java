@@ -40,7 +40,7 @@ public class EmployeeDAOImpl implements DAO<Employee> {
         Session session = sessionUtil.getSession();
         String sql = "Select * from EMPLOYEE where id = :id";
         Query query = session.createNativeQuery(sql, Employee.class);
-        query.setParameter(1, id);
+        query.setParameter("id", id);
         Employee employee = (Employee) query.getSingleResult();
         sessionUtil.closeTransactionSession();
         return employee;

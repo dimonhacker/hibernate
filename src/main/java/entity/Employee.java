@@ -1,7 +1,7 @@
 package entity;
 
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 import java.sql.Date;
 import java.util.Set;
