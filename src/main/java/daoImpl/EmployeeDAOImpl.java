@@ -19,7 +19,7 @@ public class EmployeeDAOImpl implements DAO<Employee> {
     public void add(Employee employee) throws SQLException {
         sessionUtil.openTransactionSession();
         Session session = sessionUtil.getSession();
-        session.persist(employee);
+        session.save(employee);
         sessionUtil.closeTransactionSession();
     }
 

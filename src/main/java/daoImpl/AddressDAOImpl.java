@@ -18,7 +18,7 @@ public class AddressDAOImpl implements DAO<Address> {
     public void add(Address address) throws SQLException {
         sessionUtil.openTransactionSession();
         Session session = sessionUtil.getSession();
-        session.persist(address);
+        session.save(address);
         sessionUtil.closeTransactionSession();
     }
 
@@ -37,7 +37,7 @@ public class AddressDAOImpl implements DAO<Address> {
     public Address getById(long id) throws SQLException {
         sessionUtil.openTransactionSession();
         Session session = sessionUtil.getSession();
-        String sql = "Select * from ADDRESS where id = :id";
+        String sql = "Select * from ADDRESS where id = ?";
         Query query = session.createNativeQuery(sql, Address.class);
         query.setParameter(1, id);
         Address address = (Address) query.getSingleResult();

@@ -49,9 +49,11 @@ public class Domain {
         employee.setProjects(projects);
 
 
-        addressService.addAddress(address);
-        employeeService.addEmployee(employee);
-        projectService.addProject(project);
+//        addressService.addAddress(address);
+//        employeeService.addEmployee(employee);
+//        projectService.addProject(project);
+        Address a =addressService.getById(1);
+        System.out.println(a);
 
 
 
